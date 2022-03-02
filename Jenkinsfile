@@ -73,6 +73,9 @@ pipeline {
                 }
             }
         }
+        stage ('Email Notification'){
+            mail bcc: '', body: 'See the attached log below', cc: '', from: '', replyTo: '', subject: 'Jenkis Job', to: 'avilasiriussoftware@gmail.com'
+        }
     }
     post {
         always {
