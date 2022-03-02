@@ -73,19 +73,20 @@ pipeline {
                 }
             }
         }
-        stage ('Email Notification'){
-            mail bcc: '', body: 'See the attached log below', cc: '', from: '', replyTo: '', subject: 'Jenkis Job', to: 'avilasiriussoftware@gmail.com'
-        }
+       
     }
-    post {
+   # post {
         always {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml, apit-test/target/surefire-reports/*.xml, functional-test/target/surefire-reports/*.xml, functional-test/target/failsafe-reports/*.xml'
         }
         unsuccessful {
-            emailext attachLog: true, body: 'See the attached log below', subject: 'Build $BUILD_NUMBER has failed', to: 'avilasiriussoftware@gmail.com'
+            mail bcc: '', body: 'See the attached log below', cc: '', from: '', replyTo: '', subject: 'Jenkis Job', to: 'avilasiriussoftware@gmail.com'
         }
          fixed {
             emailext attachLog: true, body: 'See the attached log below', subject: 'Build is fine!!!', to: 'avilasiriussoftware@gmail.com'
         }
     }
+     stage ('Email Notification'){
+            mail bcc: '', body: 'See the attached log below', cc: '', from: '', replyTo: '', subject: 'Jenkis Job', to: 'avilasiriussoftware@gmail.com'
+        }
 }       
