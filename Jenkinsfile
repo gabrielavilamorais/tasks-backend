@@ -86,5 +86,4 @@ pipeline {
             emailext attachLog: true, body: 'See the attached log below', subject: 'Build is fine!!!', to: 'avilasiriussoftware@gmail.com'
         }
     }
-}
 }       
