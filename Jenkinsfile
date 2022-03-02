@@ -86,7 +86,5 @@ pipeline {
             emailext attachLog: true, body: 'See the attached log below', subject: 'Build is fine!!!', to: 'avilasiriussoftware@gmail.com'
         }
     }
-     stage ('Email Notification'){
-            mail bcc: '', body: 'See the attached log below', cc: '', from: '', replyTo: '', subject: 'Jenkis Job', to: 'avilasiriussoftware@gmail.com'
-        }
+}
 }       
