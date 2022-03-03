@@ -78,7 +78,7 @@ pipeline {
     post {
         always {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml, apit-test/target/surefire-reports/*.xml, functional-test/target/surefire-reports/*.xml, functional-test/target/failsafe-reports/*.xml'
-            archiveArtifacts artifacts: 'target/tasks-backend.war, frontend/target/tasks.war' followSymlinks: false, onlyIfSuccessful: true
+            archiveArtifacts artifacts: 'target/tasks-backend.war', followSymlinks: false, onlyIfSuccessful: true
         }
         unsuccessful {
             emailext attachLog: true, body: '', compressLog: false, subject: 'Build $BUILD_NUMBER has failed', to: 'avilasiriussoftware@gmail.com'
