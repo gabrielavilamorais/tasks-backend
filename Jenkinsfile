@@ -50,8 +50,7 @@ pipeline {
                     deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', war: 'target/tasks.war'
                 }
             }
-        } 
-    }
+        }
         stage ('Functional Test') {
             steps {
                 dir('functional-test') {
@@ -59,7 +58,8 @@ pipeline {
                     bat 'mvn test'
                 }
             }
-        }   
+        } 
+    }
     post {
         always {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml, apit-test/target/surefire-reports/*.xml, functional-test/target/surefire-reports/*.xml, functional-test/target/failsafe-reports/*.xml'
